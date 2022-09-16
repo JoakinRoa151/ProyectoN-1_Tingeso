@@ -3,16 +3,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
-@Table(name = "justificativo")
+@Table(name = "ingreso_salida")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class JustificativoEntity {
+public class Ingreso_salidaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
@@ -20,6 +18,7 @@ public class JustificativoEntity {
     private String dia;
     private String mes;
     private String anio;
-    private String rut_justificativo;
-
+    private String hora_ingreso;
+    private String hora_salida;
+    private String rut_ing_sal;
 }

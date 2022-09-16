@@ -8,18 +8,14 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "justificativo")
+@Table(name = "autorizacion")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class JustificativoEntity {
+public class AutorizacionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long id;
-    private String dia;
-    private String mes;
-    private String anio;
-    private String rut_justificativo;
-
+    private String rut_autorizacion;
 }

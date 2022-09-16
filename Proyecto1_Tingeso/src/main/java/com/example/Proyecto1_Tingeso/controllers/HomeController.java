@@ -17,6 +17,16 @@ public class HomeController {
     private UploadService upload;
 
     @GetMapping("/")
+    public String index() {
+        return "index";
+    }
+
+    @GetMapping("/justificativo")
+    public String justificaciones() {
+        return "justificativo";
+    }
+
+    @GetMapping("/subirArchivo")
     public String home() {
         return "home";
     }

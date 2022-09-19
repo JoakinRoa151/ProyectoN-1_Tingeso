@@ -20,5 +20,7 @@ public class Ingreso_salidaEntity {
     private String anio;
     private String hora_ingreso;
     private String hora_salida;
+    /*@ManyToOne
+    @JoinColumn(name="rut_ing_sal")*/
     private String rut_ing_sal;
 }

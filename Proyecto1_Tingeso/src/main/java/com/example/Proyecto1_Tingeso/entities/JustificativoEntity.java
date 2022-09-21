@@ -17,9 +17,7 @@ public class JustificativoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long id;
-    private String dia;
-    private String mes;
-    private String anio;
+    private String fecha;
     private String rut_justificativo;
 
 }

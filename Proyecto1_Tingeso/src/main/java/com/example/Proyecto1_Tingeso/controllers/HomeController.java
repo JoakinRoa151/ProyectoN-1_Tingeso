@@ -14,7 +14,7 @@ import com.example.Proyecto1_Tingeso.services.UploadService;
 public class HomeController {
 
     @Autowired
-    private UploadService upload;
+    UploadService upload;
 
     @GetMapping("/")
     public String index() {
@@ -35,7 +35,7 @@ public class HomeController {
     public String carga( @RequestParam("archivos") MultipartFile file, RedirectAttributes ms) {
         upload.save(file);
         ms.addFlashAttribute("mensaje", "Archivo guardado correctamente!!");
-        return "redirect:/";
+        return "redirect:/leerArchivo";
     }
 
 }

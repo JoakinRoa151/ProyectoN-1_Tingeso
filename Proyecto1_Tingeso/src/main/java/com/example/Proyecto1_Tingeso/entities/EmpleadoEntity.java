@@ -20,8 +20,18 @@ public class EmpleadoEntity {
     private String rut;
     private String nombres;
     private String apellidos;
-    private Date fecha_nacimiento;
-    private Date fecha_ingreso;
+    private String fecha_nacimiento;
+    private String fecha_ingreso;
     private String categoria;
 
 }
+
+
+
+
+
+
+
+
+
+

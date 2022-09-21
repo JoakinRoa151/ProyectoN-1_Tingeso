@@ -12,16 +12,19 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class UploadService {
-    private String folder="cargas//";
+    private String folder="data//";
     private final Logger logg = LoggerFactory.getLogger(UploadService.class);
 
     public String save(MultipartFile file) {
         if (!file.isEmpty()) {
             try {
+                
                 byte [] bytes= file.getBytes();
                 Path path = Paths.get( folder+file.getOriginalFilename() );
+                System.out.println(folder+file.getOriginalFilename());
                 Files.write(path, bytes);
                 logg.info("Archivo guardado");
+                
 
             } catch (IOException e) {
                 e.printStackTrace();

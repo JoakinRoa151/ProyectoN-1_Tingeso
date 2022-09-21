@@ -35,7 +35,6 @@ public class EmpleadoService {
             return true;
         }catch(Exception err){
             return false;
-        }
-    }
+        }    }
 
 }

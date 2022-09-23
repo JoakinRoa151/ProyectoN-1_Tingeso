@@ -5,19 +5,18 @@ import lombok.NoArgsConstructor;
 
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
-@Table(name = "justificativo")
+@Table(name = "inasistencia_atrasos")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class JustificativoEntity {
+public class InasistenciaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long id;
-    private Date fecha;
-    private String rut_justificativo;
-
+    private String rut_inasistencia_atrasos;
+    private String tipo_inasistencia;
 }

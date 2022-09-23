@@ -14,8 +14,7 @@ public class Ingreso_salidaController {
     Ingreso_salidaService service;
 
     @GetMapping("/leerArchivo")
-    public String leerArchivo() {
-        System.out.println("LEO ENTRE");
+    public String leerArchivo(){
         service.LeerArchivo();
         return "redirect:/";
     }

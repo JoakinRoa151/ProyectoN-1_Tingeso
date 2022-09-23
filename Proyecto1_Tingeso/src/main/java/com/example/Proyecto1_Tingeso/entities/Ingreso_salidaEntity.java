@@ -4,7 +4,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-
+import java.sql.Time;
+import java.sql.Date;
 @Entity
 @Table(name = "ingreso_salida")
 @Data
@@ -15,8 +16,8 @@ public class Ingreso_salidaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long id;
-    private String fecha;
-    private String hora;
+    private Date fecha;
+    private Time hora;
     private String rut_ing_sal;
 
     public Ingreso_salidaEntity() {
@@ -30,19 +31,19 @@ public class Ingreso_salidaEntity {
         this.id = id;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
-    public String getHora() {
+    public Time getHora() {
         return hora;
     }
 
-    public void setHora(String hora) {
+    public void setHora(Time hora) {
         this.hora = hora;
     }
 

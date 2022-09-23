@@ -6,8 +6,12 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
 import java.util.StringTokenizer;
+import java.sql.Date;
 @Service
 public class Ingreso_salidaService {
     @Autowired
@@ -15,6 +19,15 @@ public class Ingreso_salidaService {
 
     public Ingreso_salidaEntity guardarIngreso_salida(Ingreso_salidaEntity ingreso_salida){
         return ingreso_salidaRepository.save(ingreso_salida);
+    }
+    public Time convertidorTime(String hora) throws ParseException {
+        Time nueva_hora = new Time((new SimpleDateFormat("HH:mm").parse(hora)).getTime());
+        return nueva_hora;
+    }
+
+    public Date convertidorDate(String fecha) throws ParseException{
+        Date nueva_fecha = new Date(new SimpleDateFormat("yyyy/MM/dd").parse(fecha).getTime());
+        return nueva_fecha;
     }
     public void LeerArchivo(){
         try {
@@ -26,8 +39,10 @@ public class Ingreso_salidaService {
                 StringTokenizer atributo= new StringTokenizer(linea, ";");
                 Ingreso_salidaEntity ingreso_salida = new Ingreso_salidaEntity();
                 while(atributo.hasMoreElements()){
-                    ingreso_salida.setFecha(atributo.nextElement().toString());
-                    ingreso_salida.setHora(atributo.nextElement().toString());
+                    Date fecha= convertidorDate(atributo.nextElement().toString());
+                    ingreso_salida.setFecha(fecha);
+                    Time hora = convertidorTime(atributo.nextElement().toString());
+                    ingreso_salida.setHora(hora);
                     ingreso_salida.setRut_ing_sal(atributo.nextElement().toString());
                 }
                 guardarIngreso_salida(ingreso_salida);
@@ -37,6 +52,10 @@ public class Ingreso_salidaService {
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
         }
     }
+
+
 }

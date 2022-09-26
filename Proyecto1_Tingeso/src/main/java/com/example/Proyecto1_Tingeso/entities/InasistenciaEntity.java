@@ -5,10 +5,10 @@ import lombok.NoArgsConstructor;
 
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
-@Table(name = "inasistencia_atrasos")
+@Table(name = "inasistencia")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,6 +17,7 @@ public class InasistenciaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long id;
-    private String rut_inasistencia_atrasos;
-    private String tipo_inasistencia;
+    private String rut_inasistencia;
+    private Date fecha;
+    private Boolean justificativo;
 }

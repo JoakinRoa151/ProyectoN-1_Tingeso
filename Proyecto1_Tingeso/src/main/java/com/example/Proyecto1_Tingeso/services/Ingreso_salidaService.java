@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 import java.sql.Date;
@@ -55,6 +56,23 @@ public class Ingreso_salidaService {
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
+    }
+    public ArrayList<Ingreso_salidaEntity> horasExtraPorRut(String rutEmpleado){
+        return (ingreso_salidaRepository.buscarHorasExtrasPorRut(rutEmpleado));
+    }
+
+    public double cantidadHorasExtraPorRut(String rutEmpleado){
+        ArrayList<Ingreso_salidaEntity> horasExtraEmpleado= ingreso_salidaRepository.buscarHorasExtrasPorRut(rutEmpleado);
+        double contadorHoras= 0;
+        double contadorMinutos= 0;
+        for(Ingreso_salidaEntity horaExtra : horasExtraEmpleado){
+            contadorHoras=(horaExtra.getHora().getHours()-18)+ contadorHoras;
+            contadorMinutos=(horaExtra.getHora().getMinutes())+ contadorMinutos;
+        }
+        return(contadorHoras+(contadorMinutos/60));
+    }
+    public ArrayList<Ingreso_salidaEntity> buscarInasistencias(){
+        return(ingreso_salidaRepository.buscarInasistencias());
     }
 
 

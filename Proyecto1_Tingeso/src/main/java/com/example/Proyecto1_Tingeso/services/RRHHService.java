@@ -21,6 +21,9 @@ public class RRHHService {
     @Autowired
     InasistenciaRepository inasistenciaRepository;
 
+    @Autowired
+    AutorizacionService autorizacionService;
+
     public double obtenerSueldoFijo(String categoria) {
         if (categoria.equals("A")) {
             return 1700000;
@@ -86,6 +89,7 @@ public class RRHHService {
         if(descuento>=1){
             return 1;
         }
+
         return descuento;
     }
     public double bonificacionTiempoServicio(int aniosServicio){

@@ -3,14 +3,15 @@ package com.example.Proyecto1_Tingeso.controllers;
 
 
 import com.example.Proyecto1_Tingeso.entities.InasistenciaEntity;
+import com.example.Proyecto1_Tingeso.entities.SueldoEntity;
 import com.example.Proyecto1_Tingeso.services.InasistenciaService;
 import com.example.Proyecto1_Tingeso.services.Ingreso_salidaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 
 @Controller
 @RequestMapping
@@ -23,13 +24,13 @@ public class InasistenciaController {
     public String agregar(Model model){
         model.addAttribute("inasistencia",new InasistenciaEntity());
 
-        return "inasistencia";
+        return "ingresarInasistencia";
     }
 
     @PostMapping("/guardarInasistencia")
     public String guardarInasistencia( InasistenciaEntity inasistencia){
         inasistenciaService.guardarInasistencia(inasistencia);
-        return "redirect:/";
+        return "redirect:/listarInasistencias";
 
     }
 
@@ -37,5 +38,18 @@ public class InasistenciaController {
     public String guardarInasistenciasAutomatico(){
         inasistenciaService.guardarInasistenciaAutomatico(ingreso_salidaService.buscarInasistencias());
         return "redirect:/";
+    }
+
+    @GetMapping("/justificarInasistencia/{id}")
+    public String justificarInasistencia(@PathVariable Long id){
+        inasistenciaService.justificarInasistencia(true, id);
+        return "redirect:/listarInasistencias";
+    }
+
+    @GetMapping("/listarInasistencias")
+    public String listarInasistencias(Model model) {
+        ArrayList<InasistenciaEntity> inasistencias = inasistenciaService.obtenerInasistencias();
+        model.addAttribute("inasistencias", inasistencias);
+        return "inasistencias";
     }
 }

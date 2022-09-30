@@ -33,9 +33,15 @@ public class HomeController {
 
     @PostMapping("/cargar")
     public String carga( @RequestParam("archivos") MultipartFile file, RedirectAttributes ms) {
-        upload.save(file);
-        ms.addFlashAttribute("mensaje", "Archivo guardado correctamente!!");
-        return "redirect:/leerArchivo";
+        if(file.getOriginalFilename().equals("DATA.txt")){
+            upload.save(file);
+            ms.addFlashAttribute("mensaje", "Archivo guardado correctamente!!");
+            return "redirect:/leerArchivo";
+        }
+        else{
+            ms.addFlashAttribute("mensaje", "Archivo Incorrecto!, el archivo debe llamarse DATA.txt!");
+            return "redirect:/subirArchivo";
+        }
     }
 
 }

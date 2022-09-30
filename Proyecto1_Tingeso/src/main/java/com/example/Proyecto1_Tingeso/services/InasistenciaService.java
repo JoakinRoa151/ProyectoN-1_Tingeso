@@ -1,5 +1,6 @@
 package com.example.Proyecto1_Tingeso.services;
 
+import com.example.Proyecto1_Tingeso.entities.EmpleadoEntity;
 import com.example.Proyecto1_Tingeso.entities.InasistenciaEntity;
 import com.example.Proyecto1_Tingeso.entities.Ingreso_salidaEntity;
 import com.example.Proyecto1_Tingeso.repositories.InasistenciaRepository;
@@ -25,5 +26,13 @@ public class InasistenciaService {
             InasistenciaEntity nuevaInasistencia = new InasistenciaEntity(null,rut,fecha,false);
             inasistenciaRepository.save(nuevaInasistencia);
         }
+    }
+    public void justificarInasistencia(Boolean justificativo, Long id){
+        inasistenciaRepository.justificarInasistencia(justificativo,id);
+        return;
+    }
+
+    public ArrayList<InasistenciaEntity> obtenerInasistencias(){
+        return (ArrayList<InasistenciaEntity>) inasistenciaRepository.findAll();
     }
 }

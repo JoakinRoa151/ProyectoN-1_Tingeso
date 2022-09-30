@@ -16,7 +16,7 @@ public class Ingreso_salidaController {
     @GetMapping("/leerArchivo")
     public String leerArchivo(){
         service.LeerArchivo();
-        return "redirect:/";
+        return "redirect:/inasistenciasAutomatico";
     }
 
 }

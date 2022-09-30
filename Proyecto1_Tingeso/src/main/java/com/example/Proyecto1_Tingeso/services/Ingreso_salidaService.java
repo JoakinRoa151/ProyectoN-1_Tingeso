@@ -74,6 +74,12 @@ public class Ingreso_salidaService {
     public ArrayList<Ingreso_salidaEntity> buscarInasistencias(){
         return(ingreso_salidaRepository.buscarInasistencias());
     }
+    public ArrayList<String> buscarEmpleadosHorasExtra(){
+        return(ingreso_salidaRepository.buscarEmpleadosHorasExtra());
+    }
 
-
+    public void eliminarTodoIngresoSalida(){
+        ingreso_salidaRepository.deleteAll();
+        return;
+    }
 }

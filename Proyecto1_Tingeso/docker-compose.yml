@@ -14,9 +14,9 @@ services:
     container_name: app-tingeso
     image: joakinroa151/app-tingeso:latest
     ports:
-      - '8080:8080'
+      - "8080:8090"
     environment:
-      DB_URL: jdbc:mysql://mysql-db:3306/bd?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
+      DB_URL: jdbc:mysql://mysql-db:3306/bd?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
       DB_USERNAME: root
       DB_PASSWORD: password
     deploy:

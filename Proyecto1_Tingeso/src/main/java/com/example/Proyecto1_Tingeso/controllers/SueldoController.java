@@ -63,20 +63,4 @@ public class SueldoController {
         model.addAttribute("sueldos", sueldos);
         return "sueldos";
     }
-
-
-    @GetMapping("/prueba")
-    public String prueba(){
-        //Integer A= ingreso_salidaService.buscarInasistencias1("20.457.671-9");
-        //double A= ingreso_salidaService.cantidadHorasExtraPorRut("27.752.982-4");
-
-        /*ArrayList<Ingreso_salidaEntity> A=ingreso_salidaService.horasExtraPorRut("20.457.671-9");
-        for(Ingreso_salidaEntity i : A){
-            System.out.println(i.getHora());
-        }*/
-      //  System.out.println(A);
-        rrhhService.descuentoInasistencias("20.457.671-9");
-        rrhhService.descuentosAtrasos("20.457.671-9");
-        return "redirect:/";
-    }
 }

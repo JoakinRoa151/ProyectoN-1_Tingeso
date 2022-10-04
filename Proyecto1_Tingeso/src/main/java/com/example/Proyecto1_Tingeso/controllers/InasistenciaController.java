@@ -46,6 +46,12 @@ public class InasistenciaController {
         return "redirect:/listarInasistencias";
     }
 
+    @GetMapping("/inJustificarInasistencia/{id}")
+    public String inJustificarInasistencia(@PathVariable Long id){
+        inasistenciaService.justificarInasistencia(false, id);
+        return "redirect:/listarInasistencias";
+    }
+
     @GetMapping("/listarInasistencias")
     public String listarInasistencias(Model model) {
         ArrayList<InasistenciaEntity> inasistencias = inasistenciaService.obtenerInasistencias();

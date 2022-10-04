@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class UploadService {
-    private String folder="data//";
+    private String folder="cargas//";
     private final Logger logg = LoggerFactory.getLogger(UploadService.class);
 
     public String save(MultipartFile file) {

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.example.Proyecto1_Tingeso.entities.InasistenciaEntity;
 
 
-import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 
 @Service

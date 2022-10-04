@@ -8,5 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EmpleadoRepository extends JpaRepository<EmpleadoEntity, Long> {
 
-
+    @Query(value ="SELECT *  FROM tingeso.empleado as e where e.rut = :rut" ,
+            nativeQuery = true)
+    EmpleadoEntity buscarEmpleadoPorRut(@Param("rut") String rut);
 }

@@ -8,14 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping 
 public class Ingreso_salidaController {
-    /*@Autowired
-    ReadService service;*/
     @Autowired
-    Ingreso_salidaService service;
+    Ingreso_salidaService ingreso_salidaService;
 
     @GetMapping("/leerArchivo")
     public String leerArchivo(){
-        service.LeerArchivo();
+        ingreso_salidaService.eliminarTodoIngresoSalida();
+        ingreso_salidaService.LeerArchivo();
         return "redirect:/inasistenciasAutomatico";
     }
 

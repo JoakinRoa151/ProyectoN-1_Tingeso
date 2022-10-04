@@ -25,7 +25,9 @@ public class EmpleadoService {
         return empleadoRepository.findById(id);
     }
 
-
+    public EmpleadoEntity obtenerPorRut(String rut){
+        return empleadoRepository.buscarEmpleadoPorRut(rut);
+    }
 
     public boolean eliminarEmpleado(Long id) {
         try{

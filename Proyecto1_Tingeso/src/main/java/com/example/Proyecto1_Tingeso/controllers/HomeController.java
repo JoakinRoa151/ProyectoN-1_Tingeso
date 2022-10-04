@@ -21,11 +21,6 @@ public class HomeController {
         return "index";
     }
 
-    @GetMapping("/justificativo")
-    public String justificaciones() {
-        return "justificativo";
-    }
-
     @GetMapping("/subirArchivo")
     public String home() {
         return "home";

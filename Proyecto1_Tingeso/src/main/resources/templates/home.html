@@ -14,7 +14,9 @@
     <title>Archivos</title>
 </head>
 <body>
-<h1>Carga de archivos</h1>
+<div th:replace="~{common/navbar::navbar}">
+</div>
+<h1>Subir archivo Ingreso salida</h1>
 <div class="container">
     <form th:action="@{/cargar}" method="post" enctype="multipart/form-data">
         <input type="file" class="form-control" name="archivos"> <input

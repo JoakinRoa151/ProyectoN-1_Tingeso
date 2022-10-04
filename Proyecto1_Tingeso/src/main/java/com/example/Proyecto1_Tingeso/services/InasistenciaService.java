@@ -35,4 +35,7 @@ public class InasistenciaService {
     public ArrayList<InasistenciaEntity> obtenerInasistencias(){
         return (ArrayList<InasistenciaEntity>) inasistenciaRepository.findAll();
     }
+
+
+
 }

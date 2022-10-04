@@ -32,7 +32,7 @@ public class Ingreso_salidaService {
     }
     public void LeerArchivo(){
         try {
-            File myObj = new File("data/DATA.txt");
+            File myObj = new File("cargas/DATA.txt");
             Scanner scanner = new Scanner(myObj);
 
             while (scanner.hasNextLine()) {
@@ -64,12 +64,10 @@ public class Ingreso_salidaService {
     public double cantidadHorasExtraPorRut(String rutEmpleado){
         ArrayList<Ingreso_salidaEntity> horasExtraEmpleado= ingreso_salidaRepository.buscarHorasExtrasPorRut(rutEmpleado);
         double contadorHoras= 0;
-        double contadorMinutos= 0;
         for(Ingreso_salidaEntity horaExtra : horasExtraEmpleado){
             contadorHoras=(horaExtra.getHora().getHours()-18)+ contadorHoras;
-            contadorMinutos=(horaExtra.getHora().getMinutes())+ contadorMinutos;
         }
-        return(contadorHoras+(contadorMinutos/60));
+        return(contadorHoras);
     }
     public ArrayList<Ingreso_salidaEntity> buscarInasistencias(){
         return(ingreso_salidaRepository.buscarInasistencias());

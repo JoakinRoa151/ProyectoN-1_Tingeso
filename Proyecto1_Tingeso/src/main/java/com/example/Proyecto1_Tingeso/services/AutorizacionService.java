@@ -23,4 +23,12 @@ public class AutorizacionService {
     public AutorizacionEntity obtenerAutorizacionRut(String rut_autorizacion){
         return (autorizacionRepository.findByRut_Autorizacion(rut_autorizacion));
     }
+    public boolean eliminarAutorizacion(Long id) {
+        try{
+            autorizacionRepository.deleteById(id);
+            return true;
+        }catch(Exception err){
+            return false;
+        }    }
 }
+

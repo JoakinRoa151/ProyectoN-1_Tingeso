@@ -36,10 +36,12 @@ public class Ingreso_salidaService {
             Scanner scanner = new Scanner(myObj);
 
             while (scanner.hasNextLine()) {
+                System.out.println("aqui entra al bucle");
                 String linea = scanner.nextLine();
                 StringTokenizer atributo= new StringTokenizer(linea, ";");
                 Ingreso_salidaEntity ingreso_salida = new Ingreso_salidaEntity();
                 while(atributo.hasMoreElements()){
+                    System.out.println("agrega un elemento");
                     Date fecha= convertidorDate(atributo.nextElement().toString());
                     ingreso_salida.setFecha(fecha);
                     Time hora = convertidorTime(atributo.nextElement().toString());
@@ -47,9 +49,9 @@ public class Ingreso_salidaService {
                     ingreso_salida.setRut_ing_sal(atributo.nextElement().toString());
                 }
                 guardarIngreso_salida(ingreso_salida);
+                System.out.println("guarda un elemento");
             }
             scanner.close();
-            return;
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();

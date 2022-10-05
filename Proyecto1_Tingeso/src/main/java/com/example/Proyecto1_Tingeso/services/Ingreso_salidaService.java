@@ -32,7 +32,7 @@ public class Ingreso_salidaService {
     }
     public void LeerArchivo(){
         try {
-            File myObj = new File("cargas/DATA.txt");
+            File myObj = new File("./DATA.txt");
             Scanner scanner = new Scanner(myObj);
 
             while (scanner.hasNextLine()) {

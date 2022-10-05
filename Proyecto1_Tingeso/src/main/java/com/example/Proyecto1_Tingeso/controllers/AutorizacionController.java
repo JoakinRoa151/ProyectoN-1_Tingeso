@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 
-@RequestMapping
+
 @Controller
+@RequestMapping
 public class AutorizacionController {
     @Autowired
     AutorizacionService autorizacionService;
@@ -56,3 +57,4 @@ public class AutorizacionController {
     }
 
 }
+

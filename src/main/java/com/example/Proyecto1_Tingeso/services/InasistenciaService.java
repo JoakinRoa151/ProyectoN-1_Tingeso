@@ -16,23 +16,25 @@ public class InasistenciaService {
     @Autowired
     InasistenciaRepository inasistenciaRepository;
 
-    public InasistenciaEntity guardarInasistencia(InasistenciaEntity inasistencia){
+    public InasistenciaEntity guardarInasistencia(InasistenciaEntity inasistencia) {
         return inasistenciaRepository.save(inasistencia);
     }
-    public void guardarInasistenciaAutomatico(ArrayList<Ingreso_salidaEntity> inasistencias){
-        for(Ingreso_salidaEntity inasistencia : inasistencias){
+
+    public void guardarInasistenciaAutomatico(ArrayList<Ingreso_salidaEntity> inasistencias) {
+        for (Ingreso_salidaEntity inasistencia : inasistencias) {
             String rut = inasistencia.getRut_ing_sal();
             Date fecha = inasistencia.getFecha();
-            InasistenciaEntity nuevaInasistencia = new InasistenciaEntity(null,rut,fecha,false);
+            InasistenciaEntity nuevaInasistencia = new InasistenciaEntity(null, rut, fecha, false);
             inasistenciaRepository.save(nuevaInasistencia);
         }
     }
-    public void justificarInasistencia(Boolean justificativo, Long id){
-        inasistenciaRepository.justificarInasistencia(justificativo,id);
+
+    public void justificarInasistencia(Boolean justificativo, Long id) {
+        inasistenciaRepository.justificarInasistencia(justificativo, id);
         return;
     }
 
-    public ArrayList<InasistenciaEntity> obtenerInasistencias(){
+    public ArrayList<InasistenciaEntity> obtenerInasistencias() {
         return (ArrayList<InasistenciaEntity>) inasistenciaRepository.findAll();
     }
 
